@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{47A4E4BF-9405-A618-CC97-B69BA894C664}") = "VControlHubDemo", "VControlHubDemo.vcxproj", "{491014EF-299C-D1AE-DF23-905C9AA97699}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{491014EF-299C-D1AE-DF23-905C9AA97699}.Debug|Win32.ActiveCfg = Debug|Win32
+		{491014EF-299C-D1AE-DF23-905C9AA97699}.Debug|Win32.Build.0 = Debug|Win32
+		{491014EF-299C-D1AE-DF23-905C9AA97699}.Release|Win32.ActiveCfg = Release|Win32
+		{491014EF-299C-D1AE-DF23-905C9AA97699}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
