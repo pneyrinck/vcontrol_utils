@@ -95,14 +95,14 @@ void AppComponent::resized()
 void AppComponent::appendText(String text)
 {
     String msg;
-    msg = Time::getCurrentTime().toString(false, true) + " " + text + "\n";
+    msg = Time::getCurrentTime().toString(false, true) + " " + text;
     
     logMessages.add(msg);
     
     while (logMessages.size() > 500)
         logMessages.remove(0);
     
-    logText->setText(msg, false);
+    logText->setText(logMessages.joinIntoString("\n"), false);
     logText->moveCaretToEnd();
 }
 //[/MiscUserCode]

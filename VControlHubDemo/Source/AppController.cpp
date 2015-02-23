@@ -17,7 +17,10 @@ static String valueToString(SVControlPropertyValue* value)
         case cVControlPropertyType_NULL:
             return "NULL";
         case cVControlPropertyType_Number:
-            return String(value->valuedouble);
+            if (value->valueint == value->valuedouble)
+                return String(value->valueint);
+            else
+                return String(value->valuedouble);
         case cVControlPropertyType_String:
             return String::fromUTF8(value->valuestring);
         case cVControlPropertyType_Array:
@@ -40,6 +43,7 @@ AppController::AppController(AppComponent* appConponent_)
 
 AppController::~AppController()
 {
+    hub->setDelegate(nullptr);
 }
 
 void AppController::moduleAdded(vcmodule_model* module)
