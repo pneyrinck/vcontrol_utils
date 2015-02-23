@@ -43,6 +43,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void appendText(String text);
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -52,9 +53,13 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    StringArray logMessages;
+public:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<TabbedComponent> tabs;
+    ScopedPointer<TextEditor> logText;
 
 
     //==============================================================================

@@ -29,6 +29,19 @@
 //==============================================================================
 AppComponent::AppComponent ()
 {
+    addAndMakeVisible (tabs = new TabbedComponent (TabbedButtonBar::TabsAtTop));
+    tabs->setTabBarDepth (30);
+    tabs->setCurrentTabIndex (-1);
+
+    addAndMakeVisible (logText = new TextEditor ("logText"));
+    logText->setMultiLine (true);
+    logText->setReturnKeyStartsNewLine (false);
+    logText->setReadOnly (true);
+    logText->setScrollbarsShown (true);
+    logText->setCaretVisible (true);
+    logText->setPopupMenuEnabled (true);
+    logText->setText (String::empty);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -45,6 +58,8 @@ AppComponent::~AppComponent()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
+    tabs = nullptr;
+    logText = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -68,6 +83,8 @@ void AppComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
+    tabs->setBounds (8, 8, getWidth() - 16, getHeight() - 129);
+    logText->setBounds (8, 616, getWidth() - 16, getHeight() - 625);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -75,6 +92,19 @@ void AppComponent::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void AppComponent::appendText(String text)
+{
+    String msg;
+    msg = Time::getCurrentTime().toString(false, true) + " " + text + "\n";
+    
+    logMessages.add(msg);
+    
+    while (logMessages.size() > 500)
+        logMessages.remove(0);
+    
+    logText->setText(msg, false);
+    logText->moveCaretToEnd();
+}
 //[/MiscUserCode]
 
 
@@ -92,6 +122,12 @@ BEGIN_JUCER_METADATA
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
+  <TABBEDCOMPONENT name="tabs" id="492d5c86b8cc949e" memberName="tabs" virtualName=""
+                   explicitFocusOrder="0" pos="8 8 16M 129M" orientation="top" tabBarDepth="30"
+                   initialTab="-1"/>
+  <TEXTEDITOR name="logText" id="368c04ae0e7e3ba5" memberName="logText" virtualName=""
+              explicitFocusOrder="0" pos="8 616 16M 625M" initialText="" multiline="1"
+              retKeyStartsLine="0" readonly="1" scrollbars="1" caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
