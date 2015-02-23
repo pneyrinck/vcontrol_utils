@@ -5,9 +5,46 @@
               jucerVersion="3.1.1" companyName="Neyrinck" companyWebsite="http://neyrinck.com/">
   <MAINGROUP id="BUkh2A" name="VControlHubDemo">
     <GROUP id="{AE8F6C15-7579-C111-8562-2FE10FEFF0E6}" name="Source">
-      <FILE id="SLJjeV" name="MainComponent.cpp" compile="1" resource="0"
-            file="Source/MainComponent.cpp"/>
-      <FILE id="tULPPu" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <GROUP id="{9D44E9A5-3651-321B-D59B-0D8A08FA5FED}" name="VControl">
+        <GROUP id="{6E11200E-826D-4618-FE0C-F47C9E26E42C}" name="cJSON">
+          <FILE id="p3Ts8n" name="cJSON.c" compile="1" resource="0" file="../../vcontrol/cJSON/cJSON.c"/>
+          <FILE id="qGjsFG" name="cJSON.h" compile="0" resource="0" file="../../vcontrol/cJSON/cJSON.h"/>
+          <FILE id="PHm7FH" name="cJSON_Utils.c" compile="1" resource="0" file="../../vcontrol/cJSON/cJSON_Utils.c"/>
+          <FILE id="Ui2S16" name="cJSON_Utils.h" compile="0" resource="0" file="../../vcontrol/cJSON/cJSON_Utils.h"/>
+        </GROUP>
+        <GROUP id="{822164BA-52E4-3C82-5A30-37AD4B9E676A}" name="hub">
+          <FILE id="xOcbbz" name="vcapp.h" compile="0" resource="0" file="../../vcontrol/hub/vcapp.h"/>
+          <FILE id="vycKeR" name="vchub.cpp" compile="1" resource="0" file="../../vcontrol/hub/vchub.cpp"/>
+          <FILE id="fFZIPM" name="vchub.h" compile="0" resource="0" file="../../vcontrol/hub/vchub.h"/>
+          <FILE id="UYg8j8" name="vcmodule_hub.cpp" compile="1" resource="0"
+                file="../../vcontrol/hub/vcmodule_hub.cpp"/>
+          <FILE id="JfaKNj" name="vcmodule_hub.h" compile="0" resource="0" file="../../vcontrol/hub/vcmodule_hub.h"/>
+          <FILE id="AYxIZa" name="vcmodule_model.h" compile="0" resource="0"
+                file="../../vcontrol/hub/vcmodule_model.h"/>
+        </GROUP>
+        <GROUP id="{28D97F1C-9B7F-2D46-A239-5ADB8CF08C95}" name="includes">
+          <FILE id="hcNloC" name="vcontrol.h" compile="0" resource="0" file="../../vcontrol/includes/vcontrol.h"/>
+        </GROUP>
+        <GROUP id="{930140C8-4D82-AE8A-71FB-44779257EBC0}" name="vcontrol">
+          <FILE id="CpqOO6" name="vcfilter.cpp" compile="1" resource="0" file="../../vcontrol/vcontrol/vcfilter.cpp"/>
+          <FILE id="CEW7EA" name="vcfilter.h" compile="0" resource="0" file="../../vcontrol/vcontrol/vcfilter.h"/>
+          <FILE id="PZNIZx" name="vchubbrowser.c" compile="1" resource="0" file="../../vcontrol/vcontrol/vchubbrowser.c"/>
+          <FILE id="aMVQVm" name="vchubbrowser.h" compile="0" resource="0" file="../../vcontrol/vcontrol/vchubbrowser.h"/>
+          <FILE id="dGpGjk" name="vcmessage.h" compile="0" resource="0" file="../../vcontrol/vcontrol/vcmessage.h"/>
+          <FILE id="x1HJh0" name="vcmodulemessage.h" compile="0" resource="0"
+                file="../../vcontrol/vcontrol/vcmodulemessage.h"/>
+          <FILE id="NwqEa4" name="vcnode.cpp" compile="1" resource="0" file="../../vcontrol/vcontrol/vcnode.cpp"/>
+          <FILE id="O11HH4" name="vcnode.h" compile="0" resource="0" file="../../vcontrol/vcontrol/vcnode.h"/>
+          <FILE id="YTGdZY" name="vcontrol.cpp" compile="1" resource="0" file="../../vcontrol/vcontrol/vcontrol.cpp"/>
+          <FILE id="ejt4Sv" name="vcpacket.h" compile="0" resource="0" file="../../vcontrol/vcontrol/vcpacket.h"/>
+        </GROUP>
+      </GROUP>
+      <FILE id="g7dVBr" name="AppComponent.cpp" compile="1" resource="0"
+            file="Source/AppComponent.cpp"/>
+      <FILE id="HHVsL9" name="AppComponent.h" compile="0" resource="0" file="Source/AppComponent.h"/>
+      <FILE id="ft9mZd" name="AppController.cpp" compile="1" resource="0"
+            file="Source/AppController.cpp"/>
+      <FILE id="OI59ct" name="AppController.h" compile="0" resource="0" file="Source/AppController.h"/>
       <FILE id="usoim7" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
@@ -15,9 +52,9 @@
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="1" optimisation="1" targetName="VControlHubDemo"/>
+                       isDebug="1" optimisation="1" targetName="VControlHubDemo" defines="MAC=1"/>
         <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="VControlHubDemo"/>
+                       isDebug="0" optimisation="2" targetName="VControlHubDemo" defines="MAC=1"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../JUCE/modules"/>

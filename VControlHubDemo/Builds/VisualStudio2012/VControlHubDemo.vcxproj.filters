@@ -8,6 +8,21 @@
     <Filter Include="VControlHubDemo\Source">
       <UniqueIdentifier>{8EE81661-123F-613B-02B1-E48AB839F592}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VControlHubDemo\Source\VControl">
+      <UniqueIdentifier>{5A73F8A0-BB9B-C137-407D-A41A7BA52C9F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VControlHubDemo\Source\VControl\cJSON">
+      <UniqueIdentifier>{4965B692-952F-3DEF-32FC-1F06A057D8E4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VControlHubDemo\Source\VControl\hub">
+      <UniqueIdentifier>{EB99B060-EBCF-3EC1-FF58-6503A8A48DCF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VControlHubDemo\Source\VControl\includes">
+      <UniqueIdentifier>{3AD89332-8A43-12FE-8DFA-6BE1651E78C6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VControlHubDemo\Source\VControl\vcontrol">
+      <UniqueIdentifier>{2211415C-3A3C-3ABF-97A1-D570B81EC799}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
@@ -301,7 +316,34 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\MainComponent.cpp">
+    <ClCompile Include="..\..\..\..\vcontrol\cJSON\cJSON.c">
+      <Filter>VControlHubDemo\Source\VControl\cJSON</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\cJSON\cJSON_Utils.c">
+      <Filter>VControlHubDemo\Source\VControl\cJSON</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\hub\vchub.cpp">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\hub\vcmodule_hub.cpp">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcfilter.cpp">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vchubbrowser.c">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcnode.cpp">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcontrol.cpp">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AppComponent.cpp">
+      <Filter>VControlHubDemo\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AppController.cpp">
       <Filter>VControlHubDemo\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Main.cpp">
@@ -1515,7 +1557,49 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\MainComponent.h">
+    <ClInclude Include="..\..\..\..\vcontrol\cJSON\cJSON.h">
+      <Filter>VControlHubDemo\Source\VControl\cJSON</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\cJSON\cJSON_Utils.h">
+      <Filter>VControlHubDemo\Source\VControl\cJSON</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcapp.h">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vchub.h">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcmodule_hub.h">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcmodule_model.h">
+      <Filter>VControlHubDemo\Source\VControl\hub</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\includes\vcontrol.h">
+      <Filter>VControlHubDemo\Source\VControl\includes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcfilter.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vchubbrowser.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcmessage.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcmodulemessage.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcnode.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcpacket.h">
+      <Filter>VControlHubDemo\Source\VControl\vcontrol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AppComponent.h">
+      <Filter>VControlHubDemo\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AppController.h">
       <Filter>VControlHubDemo\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">

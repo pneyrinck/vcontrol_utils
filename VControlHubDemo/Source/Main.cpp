@@ -9,8 +9,8 @@
 */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "MainComponent.h"
-
+#include "AppController.h"
+#include "AppComponent.h"
 
 //==============================================================================
 class VControlHubDemoApplication  : public JUCEApplication
@@ -66,10 +66,18 @@ public:
                                                     DocumentWindow::allButtons)
         {
             setUsingNativeTitleBar (true);
-            setContentOwned (new MainContentComponent(), true);
+            setContentNonOwned (appComponent = new AppComponent(), false);
+            appController = new AppController(appComponent);
 
-            centreWithSize (getWidth(), getHeight());
+            centreWithSize (1024, 768);
             setVisible (true);
+        }
+        
+        ~MainWindow()
+        {
+            setContentNonOwned(nullptr, false);
+            appController = nullptr;
+            appComponent = nullptr;
         }
 
         void closeButtonPressed() override
@@ -89,6 +97,9 @@ public:
 
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
+        
+        ScopedPointer<AppController> appController;
+        ScopedPointer<AppComponent> appComponent;
     };
 
 private:

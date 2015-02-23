@@ -123,7 +123,16 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\MainComponent.cpp"/>
+    <ClCompile Include="..\..\..\..\vcontrol\cJSON\cJSON.c"/>
+    <ClCompile Include="..\..\..\..\vcontrol\cJSON\cJSON_Utils.c"/>
+    <ClCompile Include="..\..\..\..\vcontrol\hub\vchub.cpp"/>
+    <ClCompile Include="..\..\..\..\vcontrol\hub\vcmodule_hub.cpp"/>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcfilter.cpp"/>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vchubbrowser.c"/>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcnode.cpp"/>
+    <ClCompile Include="..\..\..\..\vcontrol\vcontrol\vcontrol.cpp"/>
+    <ClCompile Include="..\..\Source\AppComponent.cpp"/>
+    <ClCompile Include="..\..\Source\AppController.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -1232,7 +1241,21 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_video\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\MainComponent.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\cJSON\cJSON.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\cJSON\cJSON_Utils.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcapp.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vchub.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcmodule_hub.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\hub\vcmodule_model.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\includes\vcontrol.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcfilter.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vchubbrowser.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcmessage.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcmodulemessage.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcnode.h"/>
+    <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcpacket.h"/>
+    <ClInclude Include="..\..\Source\AppComponent.h"/>
+    <ClInclude Include="..\..\Source\AppController.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>

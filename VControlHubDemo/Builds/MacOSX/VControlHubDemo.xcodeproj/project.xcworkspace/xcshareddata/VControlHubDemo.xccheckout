@@ -12,6 +12,8 @@
 	<dict>
 		<key>63AAC5905B844BE272DF12260DDDD0D9E647B68A</key>
 		<string>https://github.com/pneyrinck/vcontrol_utils.git</string>
+		<key>DF9CA3774EFC9965C65181239E97954A3898AF4A</key>
+		<string>https://github.com/pneyrinck/vcontrol.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>VControlHubDemo/Builds/MacOSX/VControlHubDemo.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>63AAC5905B844BE272DF12260DDDD0D9E647B68A</key>
 		<string>../../../../..</string>
+		<key>DF9CA3774EFC9965C65181239E97954A3898AF4A</key>
+		<string>../../../../../../vcontrol_dev</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/pneyrinck/vcontrol_utils.git</string>
@@ -28,6 +32,14 @@
 	<string>63AAC5905B844BE272DF12260DDDD0D9E647B68A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DF9CA3774EFC9965C65181239E97954A3898AF4A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>vcontrol_dev</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
