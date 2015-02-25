@@ -46,6 +46,10 @@
             file="Source/AppController.cpp"/>
       <FILE id="OI59ct" name="AppController.h" compile="0" resource="0" file="Source/AppController.h"/>
       <FILE id="usoim7" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="KtIeSM" name="ModuleComponent.cpp" compile="1" resource="0"
+            file="Source/ModuleComponent.cpp"/>
+      <FILE id="hAfBXn" name="ModuleComponent.h" compile="0" resource="0"
+            file="Source/ModuleComponent.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

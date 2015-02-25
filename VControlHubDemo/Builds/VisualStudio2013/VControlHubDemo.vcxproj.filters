@@ -349,6 +349,9 @@
     <ClCompile Include="..\..\Source\Main.cpp">
       <Filter>VControlHubDemo\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ModuleComponent.cpp">
+      <Filter>VControlHubDemo\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
@@ -1600,6 +1603,9 @@
       <Filter>VControlHubDemo\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\AppController.h">
+      <Filter>VControlHubDemo\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ModuleComponent.h">
       <Filter>VControlHubDemo\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">

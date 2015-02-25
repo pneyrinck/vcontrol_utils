@@ -140,6 +140,7 @@
     <ClCompile Include="..\..\Source\AppComponent.cpp"/>
     <ClCompile Include="..\..\Source\AppController.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
+    <ClCompile Include="..\..\Source\ModuleComponent.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1262,6 +1263,7 @@
     <ClInclude Include="..\..\..\..\vcontrol\vcontrol\vcpacket.h"/>
     <ClInclude Include="..\..\Source\AppComponent.h"/>
     <ClInclude Include="..\..\Source\AppController.h"/>
+    <ClInclude Include="..\..\Source\ModuleComponent.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>

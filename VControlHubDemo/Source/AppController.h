@@ -16,6 +16,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 #include "AppComponent.h"
+#include "ModuleComponent.h"
 
 class AppController : public vcmodule_hub_delegate
 {
@@ -34,6 +35,9 @@ private:
     AppComponent* appComponent;
     
     ScopedPointer<vcmodule_hub> hub;
+    
+    Array<vcmodule_model*> modules;
+    Array<ModuleComponent*> moduleComponents;
 };
 
 #endif  // APPCONTROLLER_H_INCLUDED

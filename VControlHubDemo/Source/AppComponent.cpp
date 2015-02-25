@@ -38,7 +38,7 @@ AppComponent::AppComponent ()
     logText->setReturnKeyStartsNewLine (false);
     logText->setReadOnly (true);
     logText->setScrollbarsShown (true);
-    logText->setCaretVisible (true);
+    logText->setCaretVisible (false);
     logText->setPopupMenuEnabled (true);
     logText->setText (String::empty);
 
@@ -83,8 +83,8 @@ void AppComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    tabs->setBounds (8, 8, getWidth() - 16, getHeight() - 129);
-    logText->setBounds (8, 616, getWidth() - 16, getHeight() - 625);
+    tabs->setBounds (8, proportionOfHeight (0.0095f), getWidth() - 16, proportionOfHeight (0.7109f));
+    logText->setBounds (8, proportionOfHeight (0.7299f), getWidth() - 16, proportionOfHeight (0.2595f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -96,12 +96,12 @@ void AppComponent::appendText(String text)
 {
     String msg;
     msg = Time::getCurrentTime().toString(false, true) + " " + text;
-    
+
     logMessages.add(msg);
-    
+
     while (logMessages.size() > 500)
         logMessages.remove(0);
-    
+
     logText->setText(logMessages.joinIntoString("\n"), false);
     logText->moveCaretToEnd();
 }
@@ -123,11 +123,12 @@ BEGIN_JUCER_METADATA
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
   <TABBEDCOMPONENT name="tabs" id="492d5c86b8cc949e" memberName="tabs" virtualName=""
-                   explicitFocusOrder="0" pos="8 8 16M 129M" orientation="top" tabBarDepth="30"
-                   initialTab="-1"/>
+                   explicitFocusOrder="0" pos="8 0.948% 16M 71.09%" orientation="top"
+                   tabBarDepth="30" initialTab="-1"/>
   <TEXTEDITOR name="logText" id="368c04ae0e7e3ba5" memberName="logText" virtualName=""
-              explicitFocusOrder="0" pos="8 616 16M 625M" initialText="" multiline="1"
-              retKeyStartsLine="0" readonly="1" scrollbars="1" caret="1" popupmenu="1"/>
+              explicitFocusOrder="0" pos="8 72.986% 16M 25.948%" initialText=""
+              multiline="1" retKeyStartsLine="0" readonly="1" scrollbars="1"
+              caret="0" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
