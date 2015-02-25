@@ -34,7 +34,8 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class AppComponent  : public Component
+class AppComponent  : public Component,
+                      public AsyncUpdater
 {
 public:
     //==============================================================================
@@ -44,6 +45,7 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     void appendText(String text);
+    void handleAsyncUpdate() override;
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -54,6 +56,7 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     StringArray logMessages;
+    int lines;
 public:
     //[/UserVariables]
 

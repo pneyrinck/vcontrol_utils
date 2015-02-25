@@ -44,6 +44,7 @@ AppComponent::AppComponent ()
 
 
     //[UserPreSize]
+    lines = 0;
     //[/UserPreSize]
 
     setSize (600, 400);
@@ -98,12 +99,23 @@ void AppComponent::appendText(String text)
     msg = Time::getCurrentTime().toString(false, true) + " " + text;
 
     logMessages.add(msg);
+    triggerAsyncUpdate();
+    
+    lines++;
+}
 
-    while (logMessages.size() > 500)
-        logMessages.remove(0);
-
-    logText->setText(logMessages.joinIntoString("\n"), false);
+void AppComponent::handleAsyncUpdate()
+{
+    if (lines > 500)
+    {
+        lines = 0;
+        logText->clear();
+    }
+    
+    logText->insertTextAtCaret(logMessages.joinIntoString("\n") + "\n");
     logText->moveCaretToEnd();
+    
+    logMessages.clear();
 }
 //[/MiscUserCode]
 
@@ -118,9 +130,9 @@ void AppComponent::appendText(String text)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AppComponent" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="600" initialHeight="400">
+                 parentClasses="public Component, public AsyncUpdater" constructorParams=""
+                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
+                 overlayOpacity="0.330" fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
   <TABBEDCOMPONENT name="tabs" id="492d5c86b8cc949e" memberName="tabs" virtualName=""
                    explicitFocusOrder="0" pos="8 0.948% 16M 71.09%" orientation="top"
