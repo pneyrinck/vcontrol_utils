@@ -86,7 +86,7 @@ public:
     {
         int idx = sliders.indexOf(slider);
         testModule->paramValues.set(idx, slider->getValue());
-        VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+        //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
         
         VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
     }
@@ -100,13 +100,13 @@ public:
                 int idx = toggles.indexOf(button);
                 
                 if (idx % 4 == 0)
-                    VControlModuleUpdateControlPropertyValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, (SVControlPropertyValue){cVControlPropertyType_String, kVControlDisplayMode_Point});
+                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Point);
                 if (idx % 4 == 1)
-                    VControlModuleUpdateControlPropertyValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, (SVControlPropertyValue){cVControlPropertyType_String, kVControlDisplayMode_BoostCut});
+                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_BoostCut);
                 if (idx % 4 == 2)
-                    VControlModuleUpdateControlPropertyValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, (SVControlPropertyValue){cVControlPropertyType_String, kVControlDisplayMode_Wrap});
+                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Wrap);
                 if (idx % 4 == 3)
-                    VControlModuleUpdateControlPropertyValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, (SVControlPropertyValue){cVControlPropertyType_String, kVControlDisplayMode_Spread});
+                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Spread);
             }
             
         }
@@ -117,14 +117,14 @@ public:
             if (testModule->paramType[idx] == kVControlParameterTypeMomentary)
             {
                 testModule->paramValues.set(idx, 1);
-                VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
                 VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
-                VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
                 VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
             }
