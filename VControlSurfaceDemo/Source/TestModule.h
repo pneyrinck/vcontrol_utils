@@ -8,6 +8,7 @@
 #ifndef __V_OSC__TestModule__
 #define __V_OSC__TestModule__
 
+#define VCONTROL_DEPRECATED
 #include <iostream>
 #include "JuceHeader.h"
 #include "TestModuleGUI.h"
@@ -78,17 +79,24 @@ public:
         paramValues.set(index, floatValue);
         VControlModuleUpdateControlValue(module, index, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(floatValue), floatValue});
         
-        _bson::bsonobjbuilder val;
-        val.append("position", floatValue);
-        _bson::bsonobj obj = val.obj();
-        
-        VControlModuleSendValue(module, index, obj.objdata(), obj.objsize());
+        VControlModuleSendValue(module, index, kVControlProperty_Position, floatValue);
         
         gui->update();
     };
     
     void recvValue(unsigned int index, const char* bsonData, int bsonDataSize){
-        // rmr: todo
+        
+        _bson::bsonobj obj(bsonData);
+        
+        if (obj.hasField("position"))
+        {
+            _bson::bsonelement element = obj.getField("position");
+            if (element.type() == _bson::NumberDouble)
+                paramValues.set(index, element.Double());
+        }
+        
+        // bounce the message - a real module would validate the data here
+        VControlModuleSendValue(module, index, bsonData, bsonDataSize);
         
         gui->update();
     };

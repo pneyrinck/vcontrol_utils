@@ -88,11 +88,7 @@ public:
         testModule->paramValues.set(idx, slider->getValue());
         VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
         
-        _bson::bsonobjbuilder val;
-        val.append("position", testModule->paramValues[idx]);
-        _bson::bsonobj obj = val.obj();
-        
-        VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
+        VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
     }
     
     void buttonClicked (Button* button)
@@ -123,22 +119,14 @@ public:
                 testModule->paramValues.set(idx, 1);
                 VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                _bson::bsonobjbuilder val;
-                val.append("position", testModule->paramValues[idx]);
-                _bson::bsonobj obj = val.obj();
-                
-                VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
+                VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
                 VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                _bson::bsonobjbuilder val;
-                val.append("position", testModule->paramValues[idx]);
-                _bson::bsonobj obj = val.obj();
-                
-                VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
+                VControlModuleSendValue(testModule->module, idx, kVControlProperty_Position, testModule->paramValues[idx]);
             }
         }
     }
