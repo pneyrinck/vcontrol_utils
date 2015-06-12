@@ -81,9 +81,8 @@ public:
         _bson::bsonobjbuilder val;
         val.append("position", floatValue);
         _bson::bsonobj obj = val.obj();
-        std::string str = obj.toString();
         
-        VControlModuleSendValue(module, index, str.data(), str.size());
+        VControlModuleSendValue(module, index, obj.objdata(), obj.objsize());
         
         gui->update();
     };

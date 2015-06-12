@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092B5D9E448D0AC07A008B9B /* MainComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AF17E19793FEF8A1F5FB84 /* MainComponent.cpp */; };
 		0A08D106E22FCD53DA126A8F /* juce_cryptography.mm in Sources */ = {isa = PBXBuildFile; fileRef = A13A895F880AA49EF226E011 /* juce_cryptography.mm */; };
 		0A3E1A92207E418E2F45D7FF /* RecentFilesMenuTemplate.nib in Resources */ = {isa = PBXBuildFile; fileRef = E02A412EED616476C30561B8 /* RecentFilesMenuTemplate.nib */; };
 		0D670AA73F9E25D28B89CA82 /* juce_core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 70F716A2326A2FB0CF30B162 /* juce_core.mm */; };
@@ -54,7 +53,6 @@
 		041E5A6163C7D55DEA75C1D2 /* juce_FileFilter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_FileFilter.cpp; path = ../../../../JUCE/modules/juce_core/files/juce_FileFilter.cpp; sourceTree = SOURCE_ROOT; };
 		0446432B20E97452F8197A5D /* juce_ImagePreviewComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ImagePreviewComponent.h; path = ../../../../JUCE/modules/juce_gui_basics/filebrowser/juce_ImagePreviewComponent.h; sourceTree = SOURCE_ROOT; };
 		047865C01408F497A177005E /* juce_CoreAudioFormat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_CoreAudioFormat.cpp; path = ../../../../JUCE/modules/juce_audio_formats/codecs/juce_CoreAudioFormat.cpp; sourceTree = SOURCE_ROOT; };
-		04AF17E19793FEF8A1F5FB84 /* MainComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainComponent.cpp; path = ../../Source/MainComponent.cpp; sourceTree = SOURCE_ROOT; };
 		0530C4896E6FA54AE4992AED /* juce_RelativeCoordinate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_RelativeCoordinate.cpp; path = ../../../../JUCE/modules/juce_gui_basics/positioning/juce_RelativeCoordinate.cpp; sourceTree = SOURCE_ROOT; };
 		05A8B8E9D0F80937754D1B88 /* juce_android_GraphicsContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_android_GraphicsContext.cpp; path = ../../../../JUCE/modules/juce_graphics/native/juce_android_GraphicsContext.cpp; sourceTree = SOURCE_ROOT; };
 		05B52ACF2D67720F7681F8C8 /* juce_OpenGLGraphicsContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_OpenGLGraphicsContext.cpp; path = ../../../../JUCE/modules/juce_opengl/opengl/juce_OpenGLGraphicsContext.cpp; sourceTree = SOURCE_ROOT; };
@@ -100,7 +98,7 @@
 		114EFF4CCB35F6332371DD81 /* juce_InterprocessConnection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_InterprocessConnection.cpp; path = ../../../../JUCE/modules/juce_events/interprocess/juce_InterprocessConnection.cpp; sourceTree = SOURCE_ROOT; };
 		115FBCD496487457A70FE820 /* juce_LagrangeInterpolator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_LagrangeInterpolator.h; path = ../../../../JUCE/modules/juce_audio_basics/effects/juce_LagrangeInterpolator.h; sourceTree = SOURCE_ROOT; };
 		116215D04E283CCF4C93CB0E /* juce_OpenGLContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_OpenGLContext.cpp; path = ../../../../JUCE/modules/juce_opengl/opengl/juce_OpenGLContext.cpp; sourceTree = SOURCE_ROOT; };
-		1190941BBC6D629274E7B502 /* VControlSurfaceDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VControlSurfaceDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1190941BBC6D629274E7B502 /* VControlModuleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VControlModuleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		119303D1914D525BA961AAC8 /* juce_ToolbarItemComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ToolbarItemComponent.cpp; path = ../../../../JUCE/modules/juce_gui_basics/widgets/juce_ToolbarItemComponent.cpp; sourceTree = SOURCE_ROOT; };
 		119DBFF97BFAFD6BDE8BE400 /* juce_MissingGLDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MissingGLDefinitions.h; path = ../../../../JUCE/modules/juce_opengl/native/juce_MissingGLDefinitions.h; sourceTree = SOURCE_ROOT; };
 		121824267BED9122BA42ACF2 /* juce_win32_SystemTrayIcon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_win32_SystemTrayIcon.cpp; path = ../../../../JUCE/modules/juce_gui_extra/native/juce_win32_SystemTrayIcon.cpp; sourceTree = SOURCE_ROOT; };
@@ -407,7 +405,6 @@
 		685ECF704DA192FBC2C05B59 /* juce_ChoicePropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_ChoicePropertyComponent.cpp; path = ../../../../JUCE/modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		689B71A13A4D80B1D647E077 /* juce_CameraDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_CameraDevice.h; path = ../../../../JUCE/modules/juce_video/capture/juce_CameraDevice.h; sourceTree = SOURCE_ROOT; };
 		690225980B30A691F5B59ACC /* juce_StretchableLayoutResizerBar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_StretchableLayoutResizerBar.cpp; path = ../../../../JUCE/modules/juce_gui_basics/layout/juce_StretchableLayoutResizerBar.cpp; sourceTree = SOURCE_ROOT; };
-		6927A77576E3EDE810792A7D /* MainComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainComponent.h; path = ../../Source/MainComponent.h; sourceTree = SOURCE_ROOT; };
 		69A1C3508B47744E34CD3CDE /* juce_IIRFilterAudioSource.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_IIRFilterAudioSource.cpp; path = ../../../../JUCE/modules/juce_audio_basics/sources/juce_IIRFilterAudioSource.cpp; sourceTree = SOURCE_ROOT; };
 		69B9588FC949C02799C0882B /* juce_MidiDataConcatenator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MidiDataConcatenator.h; path = ../../../../JUCE/modules/juce_audio_devices/native/juce_MidiDataConcatenator.h; sourceTree = SOURCE_ROOT; };
 		6AC500DA73D63DA58E21CFCD /* juce_PluginListComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PluginListComponent.cpp; path = ../../../../JUCE/modules/juce_audio_processors/scanning/juce_PluginListComponent.cpp; sourceTree = SOURCE_ROOT; };
@@ -1618,8 +1615,6 @@
 				27B82B5593996A370E245303 /* TestModule.h */,
 				70DB8675E2D4B5623DC91B21 /* TestModuleGUI.cpp */,
 				CCF505CFA2B24E4EB2104E39 /* TestModuleGUI.h */,
-				04AF17E19793FEF8A1F5FB84 /* MainComponent.cpp */,
-				6927A77576E3EDE810792A7D /* MainComponent.h */,
 				5645976D8C56AD97FC3EA069 /* Main.cpp */,
 			);
 			name = Source;
@@ -2013,7 +2008,7 @@
 		A3FE542DF030695F5E3982A2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				DF7C06C666B2F606519DB564 /* VControlSurfaceDemo */,
+				DF7C06C666B2F606519DB564 /* VControlModuleDemo */,
 				0A44DF1276EA31A548EB77B7 /* Juce Modules */,
 				94329E5989AACE59057D1904 /* Juce Library Code */,
 				6498FEDBC88A91352E4BA249 /* Resources */,
@@ -2480,18 +2475,18 @@
 			name = codecs;
 			sourceTree = "<group>";
 		};
-		DF7C06C666B2F606519DB564 /* VControlSurfaceDemo */ = {
+		DF7C06C666B2F606519DB564 /* VControlModuleDemo */ = {
 			isa = PBXGroup;
 			children = (
 				6DFF8550B717052B29810AEE /* Source */,
 			);
-			name = VControlSurfaceDemo;
+			name = VControlModuleDemo;
 			sourceTree = "<group>";
 		};
 		DFEC8AEEE942CB5D647B29CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1190941BBC6D629274E7B502 /* VControlSurfaceDemo.app */,
+				1190941BBC6D629274E7B502 /* VControlModuleDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2683,9 +2678,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F499933429F00F9571390BC7 /* VControlSurfaceDemo */ = {
+		F499933429F00F9571390BC7 /* VControlModuleDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0B72A53963448EC4B2036C8 /* Build configuration list for PBXNativeTarget "VControlSurfaceDemo" */;
+			buildConfigurationList = B0B72A53963448EC4B2036C8 /* Build configuration list for PBXNativeTarget "VControlModuleDemo" */;
 			buildPhases = (
 				1FB8774E8F6B45311274F22D /* Resources */,
 				C6532BD6C9EFEC788FDA91C6 /* Sources */,
@@ -2695,10 +2690,10 @@
 			);
 			dependencies = (
 			);
-			name = VControlSurfaceDemo;
+			name = VControlModuleDemo;
 			productInstallPath = "$(HOME)/Applications";
 			productName = VControlSurfaceDemo;
-			productReference = 1190941BBC6D629274E7B502 /* VControlSurfaceDemo.app */;
+			productReference = 1190941BBC6D629274E7B502 /* VControlModuleDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2709,7 +2704,7 @@
 			attributes = {
 				LastUpgradeCheck = 0440;
 			};
-			buildConfigurationList = 939D3B746774ECF200A0C68A /* Build configuration list for PBXProject "VControlSurfaceDemo" */;
+			buildConfigurationList = 939D3B746774ECF200A0C68A /* Build configuration list for PBXProject "VControlModuleDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2720,7 +2715,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F499933429F00F9571390BC7 /* VControlSurfaceDemo */,
+				F499933429F00F9571390BC7 /* VControlModuleDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -2743,7 +2738,6 @@
 			files = (
 				BF5922710E8863912EF68884 /* TestModule.cpp in Sources */,
 				1353B2B4D6C497FCD8F1A4FE /* TestModuleGUI.cpp in Sources */,
-				092B5D9E448D0AC07A008B9B /* MainComponent.cpp in Sources */,
 				616D70F9C09EEC24CF809F4D /* Main.cpp in Sources */,
 				5EA6D950127CD9DBAF72DBD6 /* juce_audio_basics.mm in Sources */,
 				349A80654F6E9B4225DC4A52 /* juce_audio_devices.mm in Sources */,
@@ -2834,6 +2828,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				PRODUCT_NAME = VControlModuleDemo;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Debug;
@@ -2866,6 +2861,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				PRODUCT_NAME = VControlModuleDemo;
 				SDKROOT_ppc = macosx10.5;
 			};
 			name = Release;
@@ -2873,7 +2869,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		939D3B746774ECF200A0C68A /* Build configuration list for PBXProject "VControlSurfaceDemo" */ = {
+		939D3B746774ECF200A0C68A /* Build configuration list for PBXProject "VControlModuleDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7B457F55C7702A8F566B6892 /* Debug */,
@@ -2882,7 +2878,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B0B72A53963448EC4B2036C8 /* Build configuration list for PBXNativeTarget "VControlSurfaceDemo" */ = {
+		B0B72A53963448EC4B2036C8 /* Build configuration list for PBXNativeTarget "VControlModuleDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8DF3C8D3028E673BA82707AB /* Debug */,

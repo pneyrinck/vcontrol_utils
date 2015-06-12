@@ -5,9 +5,9 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>960400D4-E68F-4376-83BA-ED1D58E4E948</string>
+	<string>4C559179-3F7C-49B4-9E74-5969A3D1EBF0</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>VControlModuleDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>63AAC5905B844BE272DF12260DDDD0D9E647B68A</key>
@@ -18,7 +18,7 @@
 		<string>https://github.com/pneyrinck/vcontrol.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>VControlSurfaceDemo/Builds/MacOSX/VControlSurfaceDemo.xcodeproj/project.xcworkspace</string>
+	<string>VControlSurfaceDemo/Builds/MacOSX/VControlModuleDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>63AAC5905B844BE272DF12260DDDD0D9E647B68A</key>

@@ -91,9 +91,8 @@ public:
         _bson::bsonobjbuilder val;
         val.append("position", testModule->paramValues[idx]);
         _bson::bsonobj obj = val.obj();
-        std::string str = obj.toString();
         
-        VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
+        VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
     }
     
     void buttonClicked (Button* button)
@@ -127,10 +126,8 @@ public:
                 _bson::bsonobjbuilder val;
                 val.append("position", testModule->paramValues[idx]);
                 _bson::bsonobj obj = val.obj();
-                std::string str = obj.toString();
                 
-                VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
-
+                VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
@@ -140,9 +137,8 @@ public:
                 _bson::bsonobjbuilder val;
                 val.append("position", testModule->paramValues[idx]);
                 _bson::bsonobj obj = val.obj();
-                std::string str = obj.toString();
                 
-                VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
+                VControlModuleSendValue(testModule->module, idx, obj.objdata(), obj.objsize());
             }
         }
     }
