@@ -87,6 +87,13 @@ public:
         int idx = sliders.indexOf(slider);
         testModule->paramValues.set(idx, slider->getValue());
         VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+        
+        _bson::bsonobjbuilder val;
+        val.append("position", testModule->paramValues[idx]);
+        _bson::bsonobj obj = val.obj();
+        std::string str = obj.toString();
+        
+        VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
     }
     
     void buttonClicked (Button* button)
@@ -116,11 +123,26 @@ public:
             {
                 testModule->paramValues.set(idx, 1);
                 VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                
+                _bson::bsonobjbuilder val;
+                val.append("position", testModule->paramValues[idx]);
+                _bson::bsonobj obj = val.obj();
+                std::string str = obj.toString();
+                
+                VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
+
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
                 VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                
+                _bson::bsonobjbuilder val;
+                val.append("position", testModule->paramValues[idx]);
+                _bson::bsonobj obj = val.obj();
+                std::string str = obj.toString();
+                
+                VControlModuleSendValue(testModule->module, idx, str.data(), str.size());
             }
         }
     }

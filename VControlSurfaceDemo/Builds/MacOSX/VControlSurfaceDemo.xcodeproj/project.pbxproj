@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		076D92C193D43F2D5AA577C4 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F102444149A76F123F63D338 /* QuickTime.framework */; };
 		092B5D9E448D0AC07A008B9B /* MainComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AF17E19793FEF8A1F5FB84 /* MainComponent.cpp */; };
 		0A08D106E22FCD53DA126A8F /* juce_cryptography.mm in Sources */ = {isa = PBXBuildFile; fileRef = A13A895F880AA49EF226E011 /* juce_cryptography.mm */; };
 		0A3E1A92207E418E2F45D7FF /* RecentFilesMenuTemplate.nib in Resources */ = {isa = PBXBuildFile; fileRef = E02A412EED616476C30561B8 /* RecentFilesMenuTemplate.nib */; };
@@ -26,6 +25,7 @@
 		616D70F9C09EEC24CF809F4D /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5645976D8C56AD97FC3EA069 /* Main.cpp */; };
 		65A4A8AFD665712B526FC93D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C850A60DD1CDB78D2991AF6F /* AudioToolbox.framework */; };
 		757B08669DEE9496AD2DF8BB /* juce_gui_extra.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4CF471EB8BC9A45A0AA825E /* juce_gui_extra.mm */; };
+		787396241B2B4B0F00619725 /* bson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 787396231B2B4B0F00619725 /* bson.cpp */; };
 		78758D6B1B28F62000650EF3 /* vcinterface.c in Sources */ = {isa = PBXBuildFile; fileRef = 78758D6A1B28F62000650EF3 /* vcinterface.c */; };
 		8800EC0A179BCF86471A44F3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624C0775042A5BBAAD1C9CB1 /* Carbon.framework */; };
 		946485E6597AF8C2B2564F13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2334A6BD8849214A46549 /* QuartzCore.framework */; };
@@ -451,6 +451,8 @@
 		755771A0D7568D124C319B89 /* juce_PropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PropertyComponent.cpp; path = ../../../../JUCE/modules/juce_gui_basics/properties/juce_PropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		75F79AB4BCA91CAAA63B7C0E /* juce_DialogWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_DialogWindow.cpp; path = ../../../../JUCE/modules/juce_gui_basics/windows/juce_DialogWindow.cpp; sourceTree = SOURCE_ROOT; };
 		763B26330416400E21F627DE /* juce_ElementComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ElementComparator.h; path = ../../../../JUCE/modules/juce_core/containers/juce_ElementComparator.h; sourceTree = SOURCE_ROOT; };
+		787396231B2B4B0F00619725 /* bson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bson.cpp; path = ../../../../vcontrol/includes/bson/bson.cpp; sourceTree = "<group>"; };
+		787396251B2B4C3000619725 /* corecontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = corecontrol.h; path = ../../../../vcontrol/includes/corecontrol.h; sourceTree = "<group>"; };
 		78758D691B28F60200650EF3 /* vcontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vcontrol.h; path = ../../../../vcontrol/includes/vcontrol.h; sourceTree = "<group>"; };
 		78758D6A1B28F62000650EF3 /* vcinterface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vcinterface.c; path = ../../../../vcontrol/module/vcinterface.c; sourceTree = "<group>"; };
 		78945CA8109E1677A96C4D48 /* juce_GraphicsContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_GraphicsContext.cpp; path = ../../../../JUCE/modules/juce_graphics/contexts/juce_GraphicsContext.cpp; sourceTree = SOURCE_ROOT; };
@@ -949,7 +951,6 @@
 				9E0E16ABEC9401123E7EB387 /* OpenGL.framework in Frameworks */,
 				D569613A9D005E57BF96733D /* QTKit.framework in Frameworks */,
 				946485E6597AF8C2B2564F13 /* QuartzCore.framework in Frameworks */,
-				076D92C193D43F2D5AA577C4 /* QuickTime.framework in Frameworks */,
 				534C57174C477AFB1ABDEEC7 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1637,6 +1638,8 @@
 		78758D681B28F5D100650EF3 /* VControl */ = {
 			isa = PBXGroup;
 			children = (
+				787396251B2B4C3000619725 /* corecontrol.h */,
+				787396231B2B4B0F00619725 /* bson.cpp */,
 				78758D6A1B28F62000650EF3 /* vcinterface.c */,
 				78758D691B28F60200650EF3 /* vcontrol.h */,
 			);
@@ -2751,6 +2754,7 @@
 				0A08D106E22FCD53DA126A8F /* juce_cryptography.mm in Sources */,
 				C230227222B34F36CA55BA38 /* juce_data_structures.mm in Sources */,
 				244BC932023B96A5586B441E /* juce_events.mm in Sources */,
+				787396241B2B4B0F00619725 /* bson.cpp in Sources */,
 				3C582036D58F44BF03D45753 /* juce_graphics.mm in Sources */,
 				0FD624FF64271957ACA815A1 /* juce_gui_basics.mm in Sources */,
 				757B08669DEE9496AD2DF8BB /* juce_gui_extra.mm in Sources */,
@@ -2825,6 +2829,7 @@
 					../../JuceLibraryCode,
 					../../../../JUCE/modules,
 					"$(inherited)",
+					../../../../vcontrol/includes,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -2856,6 +2861,7 @@
 					../../JuceLibraryCode,
 					../../../../JUCE/modules,
 					"$(inherited)",
+					../../../../vcontrol/includes,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";

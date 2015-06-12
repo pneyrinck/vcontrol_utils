@@ -11,3 +11,9 @@ void TestModule::SetControl(struct VControlModule* module, void *context, unsign
 {
     if (context) ((TestModule*)context)->setControl(index, floatValue, stringValue);
 }
+
+
+void TestModule::RecvValue(struct VControlModule* module, void *context, unsigned int index, const char* id, const char* bsonData, int bsonDataSize)
+{
+    if (context) ((TestModule*)context)->recvValue(index, bsonData, bsonDataSize);
+}

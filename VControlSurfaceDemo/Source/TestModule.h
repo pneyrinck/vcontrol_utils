@@ -20,6 +20,8 @@ public:
         VControlModuleSetModuleVendor(module, vendor);
         VControlModuleSetModuleCategory(module, kVControlCategory_EQ);
         VControlModuleSetControlCallback(module,  TestModule::SetControl, (void*)this);
+        VControlModuleSetRecvValueCallback(module, TestModule::RecvValue, (void*)this);
+        
         int index = 0;
         VControlModuleAddControl(module, index, "param1", kVControlParameterTypeContinuous);
         VControlModuleUpdateControlPropertyValue(module, index, kVControlProperty_DefaultValue, (SVControlPropertyValue){cVControlPropertyType_Number, 0, 0, 0.5});
@@ -75,8 +77,23 @@ public:
     void setControl(unsigned int index, float floatValue, const char *stringValue){
         paramValues.set(index, floatValue);
         VControlModuleUpdateControlValue(module, index, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(floatValue), floatValue});
+        
+        _bson::bsonobjbuilder val;
+        val.append("position", floatValue);
+        _bson::bsonobj obj = val.obj();
+        std::string str = obj.toString();
+        
+        VControlModuleSendValue(module, index, str.data(), str.size());
+        
         gui->update();
     };
+    
+    void recvValue(unsigned int index, const char* bsonData, int bsonDataSize){
+        // rmr: todo
+        
+        gui->update();
+    };
+    
 	void setControlProperty(unsigned int index, const char* propertyName, float floatValue, const char *stringValue){
 		if (stringValue)
 			VControlModuleUpdateControlPropertyValue(module, index, propertyName, (SVControlPropertyValue){cVControlPropertyType_String, stringValue});
@@ -84,6 +101,7 @@ public:
 			VControlModuleUpdateControlPropertyValue(module, index, propertyName, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(floatValue), floatValue});
 	}
     static void SetControl(struct VControlModule* module, void *context, unsigned int index, const char* id, float floatValue, const char *stringValue);
+    static void RecvValue(struct VControlModule* module, void *context, unsigned int index, const char* id, const char* bsonData, int bsonDataSize);
     
     VControlModule* module;
     
