@@ -14,7 +14,7 @@ void TestModule::SetControl(struct VControlModule* module, void *context, unsign
 }*/
 
 
-void TestModule::RecvValue(struct VControlModule* module, void *context, unsigned int index, const char* id, const char* bsonData, int bsonDataSize)
+void TestModule::RecvValue(struct VControlModule* module, void *context, const char* jsonPtr, const char* bsonData, int bsonDataSize)
 {
-    if (context) ((TestModule*)context)->recvValue(index, bsonData, bsonDataSize);
+    if (context) ((TestModule*)context)->recvValue(jsonPtr, bsonData, bsonDataSize);
 }

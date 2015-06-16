@@ -1,14 +1,18 @@
 #include "TestModuleGUI.h"
 #include "TestModule.h"
+#include "Main.h"
 
 extern ApplicationProperties* appProperties;
 
-class TestModuleContent : public Component, public Slider::Listener, public Button::Listener
+class TestModuleContent : public Component,
+                          public Slider::Listener,
+                          public Button::Listener,
+                          public Timer
 {
 public:
     TestModuleContent(TestModule* testModule_) : testModule(testModule_)
     {
-        setSize(650, 500);
+        setSize(1200, 500);
         
         for (int i = 0; i < testModule->paramValues.size(); i++)
         {
@@ -57,8 +61,14 @@ public:
             toggles[i * 4 + 3]->setButtonText("Spread");
         }
         
+        addAndMakeVisible(jsonEditor = new TextEditor());
+        jsonEditor->setMultiLine(true);
+        jsonEditor->setReadOnly(true);
+        
         resized();
         update();
+        
+        startTimer(100);
     }
     
     void resized()
@@ -66,7 +76,7 @@ public:
         int num = sliders.size();
         if (num > 0)
         {
-            int w = getWidth() / num;
+            int w = getWidth() / 2 / num;
             for (int i = 0; i < num; i++)
             {
                 sliders[i]->setBounds(w * i, 0, w, getHeight() - 80);
@@ -76,19 +86,20 @@ public:
         num = toggles.size();
         if (num > 0)
         {
-            int w = getWidth() / (num / 4);
+            int w = getWidth() / 2 / (num / 4);
             for (int i = 0; i < num; i++)
                 toggles[i]->setBounds(i / 4 * w, (i % 4) * 20 + getHeight() - 80, w, 20);
         }
+        if (jsonEditor)
+            jsonEditor->setBounds(getLocalBounds().removeFromRight(getWidth() / 2));
     }
     
     void sliderValueChanged (Slider* slider)
     {
         int idx = sliders.indexOf(slider);
         testModule->paramValues.set(idx, slider->getValue());
-        //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
         
-        VControlModuleSendValue(testModule->module, idx, kVControlProperty_ValueNumber, testModule->paramValues[idx]);
+        VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
     }
     
     void buttonClicked (Button* button)
@@ -100,13 +111,13 @@ public:
                 int idx = toggles.indexOf(button);
                 
                 if (idx % 4 == 0)
-                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Point);
+                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Point);
                 if (idx % 4 == 1)
-                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_BoostCut);
+                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_BoostCut);
                 if (idx % 4 == 2)
-                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Wrap);
+                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Wrap);
                 if (idx % 4 == 3)
-                    VControlModuleSendValue(testModule->module, idx / 4, kVControlProperty_DisplayMode, kVControlDisplayMode_Spread);
+                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Spread);
             }
             
         }
@@ -119,14 +130,14 @@ public:
                 testModule->paramValues.set(idx, 1);
                 //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSendValue(testModule->module, idx, kVControlProperty_ValueNumber, testModule->paramValues[idx]);
+                VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
                 //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSendValue(testModule->module, idx, kVControlProperty_ValueNumber, testModule->paramValues[idx]);
+                VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
         }
     }
@@ -154,14 +165,27 @@ public:
         
     }
     
+    void timerCallback()
+    {
+        const char* txt = VControlModuleGetAsJson(testModule->module);
+        if (txt)
+        {
+            String str(txt);
+            if (str != jsonEditor->getText())
+                jsonEditor->setText(str);
+            free((void*)txt);
+        }
+    }
+    
     OwnedArray<Slider> sliders;
     OwnedArray<Button> buttons;
     OwnedArray<Button> toggles;
+    ScopedPointer<TextEditor> jsonEditor;
     TestModule* testModule;
 };
 
 TestModuleGUI::TestModuleGUI(TestModule* testModule_, String name)
-  : DocumentWindow(name, Colours::white, TitleBarButtons::allButtons, true ),
+  : DocumentWindow(name, Colours::white, DocumentWindow::allButtons, true ),
     testModule(testModule_)
 {
     static int x = 40;
@@ -177,14 +201,16 @@ TestModuleGUI::TestModuleGUI(TestModule* testModule_, String name)
     x += 40;
     y += 40;
     
-    String windowPos = appProperties->getUserSettings()->getValue("windowPosition-" + name);
+    PropertiesFile* props = VControlApplication::getProperties();
+    String windowPos = props->getValue("windowPosition-" + name);
     if (windowPos.isNotEmpty())
         restoreWindowStateFromString(windowPos);
 }
 
 TestModuleGUI::~TestModuleGUI()
 {
-    appProperties->getUserSettings()->setValue("windowPosition-" + getName(), getWindowStateAsString());
+    PropertiesFile* props = VControlApplication::getProperties();
+    props->setValue("windowPosition-" + getName(), getWindowStateAsString());
 }
 
 void TestModuleGUI::update()
