@@ -1,6 +1,5 @@
 #include "TestModuleGUI.h"
 #include "TestModule.h"
-#include "Main.h"
 
 extern ApplicationProperties* appProperties;
 
@@ -201,7 +200,7 @@ TestModuleGUI::TestModuleGUI(TestModule* testModule_, String name)
     x += 40;
     y += 40;
     
-    PropertiesFile* props = VControlApplication::getProperties();
+    PropertiesFile* props = appProperties->getUserSettings();
     String windowPos = props->getValue("windowPosition-" + name);
     if (windowPos.isNotEmpty())
         restoreWindowStateFromString(windowPos);
@@ -209,7 +208,7 @@ TestModuleGUI::TestModuleGUI(TestModule* testModule_, String name)
 
 TestModuleGUI::~TestModuleGUI()
 {
-    PropertiesFile* props = VControlApplication::getProperties();
+    PropertiesFile* props = appProperties->getUserSettings();
     props->setValue("windowPosition-" + getName(), getWindowStateAsString());
 }
 
