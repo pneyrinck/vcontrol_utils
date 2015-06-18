@@ -82,20 +82,30 @@ public:
         VControlModuleDestroy(module);
     }
     
-    void recvValue(const char* jsonPtr, const char* bsonData, int bsonDataSize){
+    void recvValue(const char* jsonPtr_, const char* jsonData, int jsonDataSize){
         
-        _bson::bsonobj obj(bsonData);
+        String jsonPtr(jsonPtr_);
+        cJSON* json = cJSON_Parse(jsonData);
         
-        if (obj.hasField(kVControlProperty_ValueNumber))
+        if (jsonPtr.endsWith(kVControlProperty_ValueNumber))
         {
-            int index = 0; // todo: rmr
-            _bson::bsonelement element = obj.getField(kVControlProperty_ValueNumber);
-            if (element.type() == _bson::NumberDouble)
-                paramValues.set(index, element.Double());
+            for (int i = 0; i < jsonPtrs.size(); i++)
+            {
+                if (jsonPtr.startsWith(String(jsonPtrs[i].c_str())))
+                {
+                    if (json->type == cJSON_Number)
+                    {
+                        double v = json->valuedouble;
+                        paramValues.set(i, v);
+                    }
+                }
+            }
         }
         
+        cJSON_Delete(json);
+        
         // bounce the message - a real module would validate the data here
-        VControlModuleSendValue(module, jsonPtr, bsonData, bsonDataSize);
+        VControlModuleSendValue(module, jsonPtr_, jsonData, jsonDataSize);
         
         gui->update();
     };

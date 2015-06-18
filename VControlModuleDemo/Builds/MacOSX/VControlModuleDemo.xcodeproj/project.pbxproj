@@ -24,8 +24,9 @@
 		616D70F9C09EEC24CF809F4D /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5645976D8C56AD97FC3EA069 /* Main.cpp */; };
 		65A4A8AFD665712B526FC93D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C850A60DD1CDB78D2991AF6F /* AudioToolbox.framework */; };
 		757B08669DEE9496AD2DF8BB /* juce_gui_extra.mm in Sources */ = {isa = PBXBuildFile; fileRef = F4CF471EB8BC9A45A0AA825E /* juce_gui_extra.mm */; };
-		787396241B2B4B0F00619725 /* bson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 787396231B2B4B0F00619725 /* bson.cpp */; };
 		78758D6B1B28F62000650EF3 /* vcinterface.c in Sources */ = {isa = PBXBuildFile; fileRef = 78758D6A1B28F62000650EF3 /* vcinterface.c */; };
+		7881D2D31B3227D00099552E /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 7881D2CF1B3227D00099552E /* cJSON_Utils.c */; };
+		7881D2D41B3227D00099552E /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = 7881D2D11B3227D00099552E /* cJSON.c */; };
 		8800EC0A179BCF86471A44F3 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 624C0775042A5BBAAD1C9CB1 /* Carbon.framework */; };
 		946485E6597AF8C2B2564F13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A2334A6BD8849214A46549 /* QuartzCore.framework */; };
 		9E0E16ABEC9401123E7EB387 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E34AC3FCD124AB070B41219 /* OpenGL.framework */; };
@@ -448,10 +449,13 @@
 		755771A0D7568D124C319B89 /* juce_PropertyComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PropertyComponent.cpp; path = ../../../../JUCE/modules/juce_gui_basics/properties/juce_PropertyComponent.cpp; sourceTree = SOURCE_ROOT; };
 		75F79AB4BCA91CAAA63B7C0E /* juce_DialogWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_DialogWindow.cpp; path = ../../../../JUCE/modules/juce_gui_basics/windows/juce_DialogWindow.cpp; sourceTree = SOURCE_ROOT; };
 		763B26330416400E21F627DE /* juce_ElementComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ElementComparator.h; path = ../../../../JUCE/modules/juce_core/containers/juce_ElementComparator.h; sourceTree = SOURCE_ROOT; };
-		787396231B2B4B0F00619725 /* bson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bson.cpp; path = ../../../../vcontrol/includes/bson/bson.cpp; sourceTree = "<group>"; };
 		787396251B2B4C3000619725 /* corecontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = corecontrol.h; path = ../../../../vcontrol/includes/corecontrol.h; sourceTree = "<group>"; };
 		78758D691B28F60200650EF3 /* vcontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vcontrol.h; path = ../../../../vcontrol/includes/vcontrol.h; sourceTree = "<group>"; };
 		78758D6A1B28F62000650EF3 /* vcinterface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vcinterface.c; path = ../../../../vcontrol/module/vcinterface.c; sourceTree = "<group>"; };
+		7881D2CF1B3227D00099552E /* cJSON_Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cJSON_Utils.c; path = ../../../../vcontrol/cJSON/cJSON_Utils.c; sourceTree = "<group>"; };
+		7881D2D01B3227D00099552E /* cJSON_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cJSON_Utils.h; path = ../../../../vcontrol/cJSON/cJSON_Utils.h; sourceTree = "<group>"; };
+		7881D2D11B3227D00099552E /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cJSON.c; path = ../../../../vcontrol/cJSON/cJSON.c; sourceTree = "<group>"; };
+		7881D2D21B3227D00099552E /* cJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cJSON.h; path = ../../../../vcontrol/cJSON/cJSON.h; sourceTree = "<group>"; };
 		78945CA8109E1677A96C4D48 /* juce_GraphicsContext.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_GraphicsContext.cpp; path = ../../../../JUCE/modules/juce_graphics/contexts/juce_GraphicsContext.cpp; sourceTree = SOURCE_ROOT; };
 		78BDD9311C9D1F042068A7A9 /* juce_RelativeRectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_RelativeRectangle.h; path = ../../../../JUCE/modules/juce_gui_basics/positioning/juce_RelativeRectangle.h; sourceTree = SOURCE_ROOT; };
 		794740924370B4DF63A7820C /* juce_OpenGLPixelFormat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_OpenGLPixelFormat.cpp; path = ../../../../JUCE/modules/juce_opengl/opengl/juce_OpenGLPixelFormat.cpp; sourceTree = SOURCE_ROOT; };
@@ -1633,8 +1637,11 @@
 		78758D681B28F5D100650EF3 /* VControl */ = {
 			isa = PBXGroup;
 			children = (
+				7881D2CF1B3227D00099552E /* cJSON_Utils.c */,
+				7881D2D01B3227D00099552E /* cJSON_Utils.h */,
+				7881D2D11B3227D00099552E /* cJSON.c */,
+				7881D2D21B3227D00099552E /* cJSON.h */,
 				787396251B2B4C3000619725 /* corecontrol.h */,
-				787396231B2B4B0F00619725 /* bson.cpp */,
 				78758D6A1B28F62000650EF3 /* vcinterface.c */,
 				78758D691B28F60200650EF3 /* vcontrol.h */,
 			);
@@ -2748,12 +2755,13 @@
 				0A08D106E22FCD53DA126A8F /* juce_cryptography.mm in Sources */,
 				C230227222B34F36CA55BA38 /* juce_data_structures.mm in Sources */,
 				244BC932023B96A5586B441E /* juce_events.mm in Sources */,
-				787396241B2B4B0F00619725 /* bson.cpp in Sources */,
 				3C582036D58F44BF03D45753 /* juce_graphics.mm in Sources */,
 				0FD624FF64271957ACA815A1 /* juce_gui_basics.mm in Sources */,
 				757B08669DEE9496AD2DF8BB /* juce_gui_extra.mm in Sources */,
+				7881D2D41B3227D00099552E /* cJSON.c in Sources */,
 				BEBDD5617A1C10963DD3A5E2 /* juce_opengl.mm in Sources */,
 				CF75C45C00557B38E046E549 /* juce_video.mm in Sources */,
+				7881D2D31B3227D00099552E /* cJSON_Utils.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
