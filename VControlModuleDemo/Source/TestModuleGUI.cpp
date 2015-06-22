@@ -98,7 +98,7 @@ public:
         int idx = sliders.indexOf(slider);
         testModule->paramValues.set(idx, slider->getValue());
         
-        VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+        VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
     }
     
     void buttonClicked (Button* button)
@@ -110,13 +110,13 @@ public:
                 int idx = toggles.indexOf(button);
                 
                 if (idx % 4 == 0)
-                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Point);
+                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Point);
                 if (idx % 4 == 1)
-                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_BoostCut);
+                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_BoostCut);
                 if (idx % 4 == 2)
-                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Wrap);
+                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Wrap);
                 if (idx % 4 == 3)
-                    VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Spread);
+                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Spread);
             }
             
         }
@@ -129,14 +129,14 @@ public:
                 testModule->paramValues.set(idx, 1);
                 //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+                VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
                 //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSendValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+                VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
         }
     }

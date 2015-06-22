@@ -24,51 +24,51 @@ public:
         const char* jsonPtr;
         
         jsonPtr = VControlModuleAddControl(module, "param1", kVControlParameterTypeContinuous);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_DefaultValue), 0.5);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 1");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_DefaultValue), 0.5);
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 1");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
         jsonPtrs.push_back(jsonPtr);
 
         jsonPtr = VControlModuleAddControl(module, "param2", kVControlParameterTypeBoolean);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 2");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 2");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeBoolean);
         jsonPtrs.push_back(jsonPtr);
         
         jsonPtr = VControlModuleAddControl(module, "param3", kVControlParameterTypeIndexed);
-        VControlModuleSendValue(module, kVControlProperty_NumberOfSteps, 5);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 3");
+        VControlModuleSetValue(module, kVControlProperty_NumberOfSteps, 5);
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 3");
         paramValues.add(0);
         paramMax.add(4);
         paramType.add(kVControlParameterTypeIndexed);
         jsonPtrs.push_back(jsonPtr);
         
         jsonPtr = VControlModuleAddControl(module, "param4", kVControlParameterTypeMomentary);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 4");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 4");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeMomentary);
         jsonPtrs.push_back(jsonPtr);
         
         jsonPtr = VControlModuleAddControl(module, "param5", kVControlParameterTypeBoolean);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 5");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 5");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeBoolean);
         jsonPtrs.push_back(jsonPtr);
         
         jsonPtr = VControlModuleAddControl(module, "param6", kVControlParameterTypeContinuous);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 6");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 6");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
         jsonPtrs.push_back(jsonPtr);
 
         jsonPtr = VControlModuleAddControl(module, "param7", kVControlParameterTypeContinuous);
-        VControlModuleSendValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 7");
+        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 7");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
@@ -105,7 +105,7 @@ public:
         cJSON_Delete(json);
         
         // bounce the message - a real module would validate the data here
-        VControlModuleSendValue(module, jsonPtr_, jsonData, jsonDataSize);
+        VControlModuleSetValue(module, jsonPtr_, jsonData, jsonDataSize);
         
         gui->update();
     };
