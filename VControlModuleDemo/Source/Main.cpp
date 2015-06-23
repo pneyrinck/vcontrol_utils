@@ -44,9 +44,9 @@ public:
         appProperties->setStorageParameters(opts);
         
         test = new TestModule("mixer2", "Neyrinck", "Mixer 2", nullptr);
-        VControlModuleSetModuleVendor(test->module, "Neyrinck");
-        VControlModuleSetModuleCategory(test->module, kVControlCategory_Distortion);
-        VControlModulePublish(test->module);
+        CCModuleSetModuleVendor(test->module, "Neyrinck");
+        CCModuleSetModuleCategory(test->module, kVControlCategory_Distortion);
+        CCModulePublish(test->module);
 
     }
 

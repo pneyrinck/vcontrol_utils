@@ -98,7 +98,7 @@ public:
         int idx = sliders.indexOf(slider);
         testModule->paramValues.set(idx, slider->getValue());
         
-        VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+        CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
     }
     
     void buttonClicked (Button* button)
@@ -110,13 +110,13 @@ public:
                 int idx = toggles.indexOf(button);
                 
                 if (idx % 4 == 0)
-                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Point);
+                    CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Point);
                 if (idx % 4 == 1)
-                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_BoostCut);
+                    CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_BoostCut);
                 if (idx % 4 == 2)
-                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Wrap);
+                    CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Wrap);
                 if (idx % 4 == 3)
-                    VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Spread);
+                    CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx / 4], kVControlProperty_DisplayMode), kVControlDisplayMode_Spread);
             }
             
         }
@@ -127,16 +127,16 @@ public:
             if (testModule->paramType[idx] == kVControlParameterTypeMomentary)
             {
                 testModule->paramValues.set(idx, 1);
-                //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                //CCModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+                CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
             if (testModule->paramType[idx] == kVControlParameterTypeBoolean)
             {
                 testModule->paramValues.set(idx, button->getToggleState() ? 0 : 1);
-                //VControlModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
+                //CCModuleUpdateControlValue(testModule->module, idx, (SVControlPropertyValue){cVControlPropertyType_Number, 0, int(testModule->paramValues[idx]), testModule->paramValues[idx]});
                 
-                VControlModuleSetValue(testModule->module, VControlJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
+                CCModuleSetValue(testModule->module, CCJsonPtrAppend(testModule->jsonPtrs[idx], kVControlProperty_ValueNumber), testModule->paramValues[idx]);
             }
         }
     }
@@ -166,7 +166,7 @@ public:
     
     void timerCallback()
     {
-        const char* txt = VControlModuleGetAsJson(testModule->module);
+        const char* txt = CCModuleGetAsJson(testModule->module);
         if (txt)
         {
             String str(txt);

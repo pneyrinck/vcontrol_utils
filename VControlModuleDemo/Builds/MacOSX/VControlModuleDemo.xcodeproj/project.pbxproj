@@ -450,7 +450,6 @@
 		75F79AB4BCA91CAAA63B7C0E /* juce_DialogWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_DialogWindow.cpp; path = ../../../../JUCE/modules/juce_gui_basics/windows/juce_DialogWindow.cpp; sourceTree = SOURCE_ROOT; };
 		763B26330416400E21F627DE /* juce_ElementComparator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ElementComparator.h; path = ../../../../JUCE/modules/juce_core/containers/juce_ElementComparator.h; sourceTree = SOURCE_ROOT; };
 		787396251B2B4C3000619725 /* corecontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = corecontrol.h; path = ../../../../vcontrol/includes/corecontrol.h; sourceTree = "<group>"; };
-		78758D691B28F60200650EF3 /* vcontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vcontrol.h; path = ../../../../vcontrol/includes/vcontrol.h; sourceTree = "<group>"; };
 		78758D6A1B28F62000650EF3 /* vcinterface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = vcinterface.c; path = ../../../../vcontrol/module/vcinterface.c; sourceTree = "<group>"; };
 		7881D2CF1B3227D00099552E /* cJSON_Utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cJSON_Utils.c; path = ../../../../vcontrol/cJSON/cJSON_Utils.c; sourceTree = "<group>"; };
 		7881D2D01B3227D00099552E /* cJSON_Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cJSON_Utils.h; path = ../../../../vcontrol/cJSON/cJSON_Utils.h; sourceTree = "<group>"; };
@@ -1643,7 +1642,6 @@
 				7881D2D21B3227D00099552E /* cJSON.h */,
 				787396251B2B4C3000619725 /* corecontrol.h */,
 				78758D6A1B28F62000650EF3 /* vcinterface.c */,
-				78758D691B28F60200650EF3 /* vcontrol.h */,
 			);
 			name = VControl;
 			sourceTree = "<group>";

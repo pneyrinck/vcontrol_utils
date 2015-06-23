@@ -11,75 +11,75 @@
 #include <iostream>
 #include "JuceHeader.h"
 #include "TestModuleGUI.h"
-#include "vcontrol.h"
+#include "corecontrol.h"
 
 class TestModule{
 public:
-    TestModule(const char * identifier, const char * vendor, const char * name, VControlModule *parent){
-        module = VControlModuleCreate(identifier, name, parent);
-        VControlModuleSetModuleVendor(module, vendor);
-        VControlModuleSetModuleCategory(module, kVControlCategory_EQ);
-        VControlModuleSetRecvValueCallback(module, TestModule::RecvValue, (void*)this);
+    TestModule(const char * identifier, const char * vendor, const char * name, CoreControlModule *parent){
+        module = CCModuleCreate(identifier, name, parent);
+        CCModuleSetModuleVendor(module, vendor);
+        CCModuleSetModuleCategory(module, kVControlCategory_EQ);
+        CCModuleSetRecvValueCallback(module, TestModule::RecvValue, (void*)this);
 
         const char* jsonPtr;
         
-        jsonPtr = VControlModuleAddControl(module, "param1", kVControlParameterTypeContinuous);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_DefaultValue), 0.5);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 1");
+        jsonPtr = CCModuleAddControl(module, "param1", kVControlParameterTypeContinuous);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_DefaultValue), 0.5);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 1");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
         jsonPtrs.push_back(jsonPtr);
 
-        jsonPtr = VControlModuleAddControl(module, "param2", kVControlParameterTypeBoolean);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 2");
+        jsonPtr = CCModuleAddControl(module, "param2", kVControlParameterTypeBoolean);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 2");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeBoolean);
         jsonPtrs.push_back(jsonPtr);
         
-        jsonPtr = VControlModuleAddControl(module, "param3", kVControlParameterTypeIndexed);
-        VControlModuleSetValue(module, kVControlProperty_NumberOfSteps, 5);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 3");
+        jsonPtr = CCModuleAddControl(module, "param3", kVControlParameterTypeIndexed);
+        CCModuleSetValue(module, kVControlProperty_NumberOfSteps, 5);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 3");
         paramValues.add(0);
         paramMax.add(4);
         paramType.add(kVControlParameterTypeIndexed);
         jsonPtrs.push_back(jsonPtr);
         
-        jsonPtr = VControlModuleAddControl(module, "param4", kVControlParameterTypeMomentary);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 4");
+        jsonPtr = CCModuleAddControl(module, "param4", kVControlParameterTypeMomentary);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 4");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeMomentary);
         jsonPtrs.push_back(jsonPtr);
         
-        jsonPtr = VControlModuleAddControl(module, "param5", kVControlParameterTypeBoolean);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 5");
+        jsonPtr = CCModuleAddControl(module, "param5", kVControlParameterTypeBoolean);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 5");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeBoolean);
         jsonPtrs.push_back(jsonPtr);
         
-        jsonPtr = VControlModuleAddControl(module, "param6", kVControlParameterTypeContinuous);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 6");
+        jsonPtr = CCModuleAddControl(module, "param6", kVControlParameterTypeContinuous);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 6");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
         jsonPtrs.push_back(jsonPtr);
 
-        jsonPtr = VControlModuleAddControl(module, "param7", kVControlParameterTypeContinuous);
-        VControlModuleSetValue(module, VControlJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 7");
+        jsonPtr = CCModuleAddControl(module, "param7", kVControlParameterTypeContinuous);
+        CCModuleSetValue(module, CCJsonPtrAppend(jsonPtr, kVControlProperty_Name), "Parameter 7");
         paramValues.add(0);
         paramMax.add(1);
         paramType.add(kVControlParameterTypeContinuous);
         jsonPtrs.push_back(jsonPtr);
         
-        VControlModulePublish(module);
+        CCModulePublish(module);
         
         gui = new TestModuleGUI(this, name);
     }
     virtual ~TestModule(){
-        VControlModuleDestroy(module);
+        CCModuleDestroy(module);
     }
     
     void recvValue(const char* jsonPtr_, const char* jsonData, int jsonDataSize){
@@ -105,14 +105,14 @@ public:
         cJSON_Delete(json);
         
         // bounce the message - a real module would validate the data here
-        VControlModuleSetValue(module, jsonPtr_, jsonData, jsonDataSize);
+        CCModuleSetValue(module, jsonPtr_, jsonData, jsonDataSize);
         
         gui->update();
     };
     
-    static void RecvValue(struct VControlModule* module, void *context, const char* jsonPtr, const char* bsonData, int bsonDataSize);
+    static void RecvValue(struct CoreControlModule* module, void *context, const char* jsonPtr, const char* bsonData, int bsonDataSize);
     
-    VControlModule* module;
+    CoreControlModule* module;
     
     ScopedPointer<TestModuleGUI> gui;
     Array<float> paramValues;
